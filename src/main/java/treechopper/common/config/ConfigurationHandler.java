@@ -17,6 +17,7 @@ public class ConfigurationHandler {
     public static boolean reverseShift;
     public static boolean disableShift;
     public static boolean plantSapling;
+    public static boolean damageAxe;
 
     public static List<String> axeTypes = new ArrayList<>();
     public static List<String> blockWhiteList = new ArrayList<>();
@@ -35,6 +36,7 @@ public class ConfigurationHandler {
             reverseShift = config.getBoolean("Reverse shift", "Settings", false, "Reverse shift function - Mod works with shift pressing");
             disableShift = config.getBoolean("Disable shift", "Settings", false, "Disable shift function - Always chop trees regardless of shift pressing");
             plantSapling = config.getBoolean("Plant sapling", "Settings", false, "Automatic sapling plant on tree chop");
+            damageAxe = config.getBoolean("Damage Axe","Settings",true, "Decrease axe durability when cut down tres");
 
             axeTypes = ImmutableList.copyOf(config.getStringList("Whitelisted items", "Data", new String[]{
                     "item.hatchetWood",
@@ -271,6 +273,13 @@ public class ConfigurationHandler {
     public static void setDecayLea(boolean decayLea) {
         ConfigurationHandler.decayLeaves = decayLea;
         config.get("Settings", "Decay leaves", true, "Cut down whole tree - wooden blocks and leaves").set(decayLea);
+
+        config.save();
+    }
+
+    public static void setDamageAxe(boolean dmgAxe){
+        ConfigurationHandler.damageAxe = dmgAxe;
+        config.get("Settings","Damage Axe",true,"Decrease axe durability when cut down tres");
 
         config.save();
     }

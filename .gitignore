@@ -5,3 +5,4 @@ libs/*
 .gradle/*
 out/*
 TreeChopper.iml
+classes/*

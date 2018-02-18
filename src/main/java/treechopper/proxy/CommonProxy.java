@@ -72,7 +72,7 @@ public class CommonProxy {
             /*System.out.println("Max damage: " + interactEvent.getEntityPlayer().getHeldItemMainhand().getMaxDamage());
             System.out.println("Item damage: " + interactEvent.getEntityPlayer().getHeldItemMainhand().getItemDamage());*/
 
-            if (interactEvent.getEntityPlayer().getHeldItemMainhand().isItemStackDamageable() && axeDurability < logCount) {
+            if (interactEvent.getEntityPlayer().getHeldItemMainhand().isItemStackDamageable() && axeDurability < logCount && ConfigurationHandler.damageAxe) {
                 m_PlayerData.remove(interactEvent.getEntityPlayer().getPersistentID());
                 return;
             }
@@ -92,7 +92,7 @@ public class CommonProxy {
 
             BlockPos blockPos = m_PlayerData.get(breakSpeed.getEntityPlayer().getPersistentID()).m_BlockPos;
 
-            if (blockPos.equals(breakSpeed.getPos())) {
+            if (blockPos.equals(breakSpeed.getPos()) && ConfigurationHandler.damageAxe) {
                 breakSpeed.setNewSpeed(breakSpeed.getOriginalSpeed() / (m_PlayerData.get(breakSpeed.getEntityPlayer().getPersistentID()).m_LogCount / 2.0f));
             } else {
                 breakSpeed.setNewSpeed(breakSpeed.getOriginalSpeed());
@@ -114,7 +114,8 @@ public class CommonProxy {
 
                     int axeDurability = breakEvent.getPlayer().getHeldItemMainhand().getItemDamage() + (int) (m_PlayerData.get(breakEvent.getPlayer().getPersistentID()).m_LogCount * 1.5);
 
-                    breakEvent.getPlayer().getHeldItemMainhand().setItemDamage(axeDurability);
+                    if(ConfigurationHandler.damageAxe)
+                        breakEvent.getPlayer().getHeldItemMainhand().setItemDamage(axeDurability);
                 }
             }
         }

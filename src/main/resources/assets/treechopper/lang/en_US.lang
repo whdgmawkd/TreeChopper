@@ -6,6 +6,7 @@ command.decayLeavesSwitch=Decay leaves has been switched
 command.plantSaplingSwitch=Auto planting has been switched
 command.reverseShiftSwitch=Reverse function has been switched
 command.disableShiftSwitch=Disable shift function has been switched
+command.damageAxeSwitch=Damage Axe has been switched
 
 command.permissions=You do not have permission to use this command
 
@@ -14,8 +15,10 @@ command.plantSaplingInfo= Auto plant sapling, around his trunk
 command.decayLeavesInfo= Decay leaves with tree fall
 command.reverseShiftInfo= Reverse shift function
 command.disableShiftInfo= Disable shift function
+command.damageAxeInfo= Give Damage to Axe
 
 command.decayLeaves=Leaves decay:
 command.plantSapling=Automatic sapling plant:
 command.reverseShift=Reverse func:
 command.disableShift=Disabled shift:
+command.damageAxe=Damage Axe:
